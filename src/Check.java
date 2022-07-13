@@ -1,5 +1,8 @@
+import products.Coffee;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Check {
     int orderNumber;
@@ -10,10 +13,14 @@ public class Check {
         this.guestName = guestName;
     }
 
-    public void printCheck(){
+    public void printCheckTop(){
         System.out.println("ORDER # " + orderNumber + '\n' + "Guest's name: " + guestName);
         System.out.println(getCurrentData());
         System.out.println();
+    }
+    public void printCheckButton(List<Coffee> itemsInOrder){
+        System.out.println( "TOTAL: $"+ getTotalByOrder(itemsInOrder) + '\n');
+        System.out.println("Thank you for visiting our caffe!");
     }
 
     public String getCurrentData(){
@@ -22,7 +29,15 @@ public class Check {
         return (formatter.format(date));
     }
 
-    //public double totalOrderSum();
+    public static double getTotalByOrder(List<Coffee> itemsInOrder) {
+        double total = 0;
+
+        for(Coffee coffee : itemsInOrder) {
+            total += coffee.getPrice();
+        }
+        return total;
+    }
+
 
     @Override
     public String toString() {

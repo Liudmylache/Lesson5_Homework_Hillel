@@ -2,9 +2,9 @@ package products;
 
 public interface Coffee {
     double getPrice();
-    double getCoffeeBeans();
-    double getSyrup();
+    int getCoffeeBeans();
+    int getSyrup();
 
-    String isSugar();
+    Boolean isSugar();
     String isMilk();
 }

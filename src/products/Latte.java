@@ -2,8 +2,8 @@ package products;
 
 public class Latte implements Coffee{
     private final double price = 6;
-    private final double coffeeBeans = 16;
-    private final double syrup = 0;
+    private final int coffeeBeans = 15;
+    private final int syrup = 20;
     public boolean sugar;
     public String milk;
 
@@ -16,17 +16,12 @@ public class Latte implements Coffee{
         this.sugar = sugar;
     }
 
-     /*
-    recipe:
-    espresso- 50ml
-    milk - 100ml
-    water - 0
-    syrup - 5ml
-    serving - 240ml
-     */
+    public Boolean isSugar(){
+        return sugar;
+    }
 
-    public String isSugar(){
-        if (true == sugar){
+    public String printSugar(){
+        if (isSugar()){
             return "with sugar";
         } return "with no sugar";
     }
@@ -41,7 +36,7 @@ public class Latte implements Coffee{
     public String toString() {
         return "1x LATTE" + '\n' +
                 "with " + isMilk() + " milk" + '\n'+
-                isSugar() + '\n'+
+                printSugar() + '\n'+
                 "price:  $" + price + '\n' + '\n';
     }
 
@@ -51,12 +46,12 @@ public class Latte implements Coffee{
     }
 
     @Override
-    public double getCoffeeBeans() {
+    public int getCoffeeBeans() {
         return this.coffeeBeans;
     }
 
     @Override
-    public double getSyrup() {
+    public int getSyrup() {
         return this.syrup;
     }
 }
